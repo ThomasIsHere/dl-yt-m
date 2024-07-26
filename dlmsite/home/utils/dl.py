@@ -1,6 +1,5 @@
 import imageio_ffmpeg as ffmpeg
 import yt_dlp
-import json
 
 
 def download_youtube_video(url, output_path='.', audio_only=False) -> str:
