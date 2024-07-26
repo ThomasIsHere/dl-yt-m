@@ -1,14 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse, FileResponse, Http404
+from django.http import FileResponse, Http404
 
 import os
 
 from .forms import SimpleForm
 from .utils import dl, deletemp3
-
-
-def index(request):
-    return render(request, "home/index.html")
 
 
 def simple_form_view(request):
@@ -34,12 +30,7 @@ def simple_form_view(request):
             deletemp3.deleteMp3File.after_response(file_path)
 
             return response
-        
     else:
         form = SimpleForm()
 
     return render(request, 'home/form.html', {'form': form})
-
-
-def download(request):
-    return render(request, "home/download.html")
